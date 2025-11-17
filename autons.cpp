@@ -64,14 +64,14 @@ void scoreauton(){
 
 
 void right_side_WP(){
-  core difference;
+  //difference of WP and elim
   pros::delay(500);
   chassis.pid_drive_set(-6, DRIVE_SPEED);
   chassis.pid_wait();
   chassis.pid_turn_set(-45, TURN_SPEED);
   chassis.pid_wait();
   chassis.pid_drive_set(14, DRIVES_SPEED);
-  //score upper goal
+  //score lower goal
   chassid.pid_drive_set(-35, DRIVE_SPEED);
   chassis.pid_wait();
   chassis.pid_turn_set(-180, TURN_SPEED);
@@ -83,6 +83,34 @@ void right_side_WP(){
 
   
   
+}
+
+void solo_wp(){
+  pros::delay(500);
+  chassis.pid_drive_set(-6, DRIVE_SPEED);
+  chassis.pid_wait();
+  chassis.pid_turn_set(45, TURN_SPEED);
+  chassis.pid_wait();
+  chassis.pid_drive_set(14, DRIVES_SPEED);
+  chassis.pid_wait();
+  //score upper goal
+  chassis.pid_turn_set(90, TURN_SPEED);
+  chassis.pic_wait();
+  //intake on
+  chassis.pid_drive_set(39, DRIVE_SPEED);
+  chassis.pid_wait_quick_chain();
+  chassis.pid_swing_set(RIGHT_SWING, -45, TURN_SPEED, 0);
+  chassis.pid_wait();
+  chassis.pid_drive_set(12, DRIVE_SPEED);
+  //bottom scoring
+   chassid.pid_drive_set(-35, DRIVE_SPEED);
+  chassis.pid_wait();
+  chassis.pid_turn_set(-180, TURN_SPEED);
+  chassis.pid_wait();
+  tongue.set(true);
+  chassis.pid_drive_set(15);
+  chassis.pid_wait();
+  pros:;delay(2000);
 }
 
 
@@ -542,3 +570,4 @@ void measure_offsets() {
 // Make your own autonomous functions here!
 
 // . . .
+
