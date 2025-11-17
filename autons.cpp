@@ -60,6 +60,37 @@ void scoreauton(){
 }
 }
 
+
+
+
+void right_side_WP(){
+  core difference;
+  pros::delay(500);
+  chassis.pid_drive_set(-6, DRIVE_SPEED);
+  chassis.pid_wait();
+  chassis.pid_turn_set(-45, TURN_SPEED);
+  chassis.pid_wait();
+  chassis.pid_drive_set(14, DRIVES_SPEED);
+  //score upper goal
+  chassid.pid_drive_set(-35, DRIVE_SPEED);
+  chassis.pid_wait();
+  chassis.pid_turn_set(-180, TURN_SPEED);
+  chassis.pid_wait();
+  tongue.set(true);
+  chassis.pid_drive_set(15);
+  chassis.pid_wait();
+  pros:;delay(2000);
+
+  
+  
+}
+
+
+
+
+
+
+
 void right_side() {
   
   chassis.pid_drive_set (30, DRIVE_SPEED, true);
@@ -509,4 +540,5 @@ void measure_offsets() {
 
 // . . .
 // Make your own autonomous functions here!
+
 // . . .
